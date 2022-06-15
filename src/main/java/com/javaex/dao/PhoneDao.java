@@ -41,10 +41,8 @@ public class PhoneDao {
 			//conn = DriverManager.getConnection(url, id, pw);
 			// System.out.println("접속성공");
 			conn = dataSource.getConnection();
+		
 			
-			
-		} catch (ClassNotFoundException e) {
-			System.out.println("error: 드라이버 로딩 실패 - " + e);
 		} catch (SQLException e) {
 			System.out.println("error:" + e);
 		}
