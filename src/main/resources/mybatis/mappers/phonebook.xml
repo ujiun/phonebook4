@@ -3,9 +3,18 @@
 
 <mapper namespace="phonebook">
 
-	<select id="selectList" resultType="com.javaex.vo.PersonVo">
+	<resultMap id="resultMapPersonVo" type="com.javaex.vo.PersonVo">
+		<result column="person_id" property="personId" />
+		<result column="name" property="name" />
+		<result column="hp" property="hp" />
+		<result column="company" property="company" />
+	</resultMap>
+
+
+	<!-- 전체리스트 가져오기 -->
+	<select id="selectList" resultMap="resultMapPersonVo">
 		<![CDATA[
-			select  person_id personId,
+			select  person_id,
 				name,
 				hp,
 				company
@@ -14,7 +23,8 @@
 		]]>
 	</select>
 	
-	<insert id="personInsert" parameterType="com.javaex.vo.PersonVo">
+	<!-- 전화번호 저장 -->
+	<insert id="personInsert" parameterType="PersonVo">
 		<![CDATA[
 			insert into person
 			values (seq_person_id.nextval, #{name}, #{hp}, #{company})
@@ -23,6 +33,7 @@
 	
 	</insert>
 	
+	<!-- 전화번호 삭제 -->
 	<delete id="personDelete" parameterType="int">
 		<![CDATA[
 			delete from person
@@ -32,10 +43,10 @@
 	
 	</delete>
 	
-	<!-- 1명 정보 가져오기(회원정보용) -->
+	<!-- 1명 정보 가져오기(회원정보용) -->	<!-- 이름 맞추기 중요! -->
 	<select id="getPerson" parameterType="int" resultType="com.javaex.vo.PersonVo">
 		<![CDATA[
-			select  person_id personId,
+			select  person_id personId,	
 			      	name,
 			       	hp,
 			        company
@@ -44,7 +55,7 @@
 		]]>
 	</select>
 	
-	<!-- 전화번호 수정 -->
+	<!-- 전화번호 수정 -->	<!-- 게터세터 이름 -->
 	<update id="personUpdate" parameterType="com.javaex.vo.PersonVo">
 		<![CDATA[
 			update  person
