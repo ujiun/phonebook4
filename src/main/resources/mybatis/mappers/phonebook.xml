@@ -23,5 +23,25 @@
 	
 	</insert>
 	
-
+	<delete id="personDelete" parameterType="int">
+		<![CDATA[
+			delete from person
+			where person_id = #{no}
+		
+		]]>
+	
+	</delete>
+	
+	<!-- 1명 정보 가져오기(회원정보용) -->
+	<select id="getPerson" parameterType="int" resultType="com.javaex.vo.PersonVo">
+		<![CDATA[
+			select  person_id personId,
+			      	name,
+			       	hp,
+			        company
+			from person
+			where person_id = #{no}
+		]]>
+	</select>
+	
 </mapper>
