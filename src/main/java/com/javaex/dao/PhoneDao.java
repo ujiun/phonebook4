@@ -117,7 +117,14 @@ public class PhoneDao {
 	}
 	
 	
-	
+	//사람 수정
+	public int personUpdate(PersonVo vo) {
+		System.out.println("PhoneDao>personUpdate()");
+		int count = sqlSession.update("phonebook.personUpdate", vo);
+		
+		return count;
+		
+	}
 	
 	
 	
@@ -284,7 +291,7 @@ public class PhoneDao {
 	
 	
 	// 사람 수정
-	public int personUpdate(PersonVo personVo) {
+	public int personUpdate2(PersonVo personVo) {
 		int count = 0;
 		getConnection();
 

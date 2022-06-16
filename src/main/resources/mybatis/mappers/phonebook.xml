@@ -44,4 +44,15 @@
 		]]>
 	</select>
 	
+	<update id="personUpdate" parameterType="com.javaex.vo.PersonVo">
+		<![CDATA[
+			update  person
+			set 	name = #{name},
+	  		  		hp = #{hp},
+	  		 		company = #{company}
+			where person_Id = #{personId}
+		]]>
+	
+	</update>
+	
 </mapper>

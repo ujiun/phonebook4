@@ -149,7 +149,8 @@ public class PhoneController {
 
 		// Service를 통해서 수정하기
 		int count = phoneService.personUpdate(personVo);
-
+		
+		
 		return "redirect:/list";
 	}
 
