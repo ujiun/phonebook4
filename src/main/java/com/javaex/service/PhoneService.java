@@ -32,10 +32,10 @@ public class PhoneService {
 	
 	
 	//전화번호 등록
-	public int personInsert(PersonVo personVo) {
+	public int personInsert(PersonVo vo) {
 		System.out.println("PhoneService>PersonInsert()");
 		
-		int count = phoneDao.personInsert(personVo);
+		int count = phoneDao.personInsert(vo);
 		
 		return count;
 	}
@@ -60,9 +60,9 @@ public class PhoneService {
 	}
 	
 	//전화번호 수정
-	public int personUpdate(PersonVo personVo) {
+	public int personUpdate(PersonVo vo) {
 		System.out.println("PhoneService>personUpdate()");
-		int count = phoneDao.personUpdate(personVo);
+		int count = phoneDao.personUpdate(vo);
 		
 		return count;
 	}

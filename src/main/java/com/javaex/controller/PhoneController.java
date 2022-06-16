@@ -141,9 +141,9 @@ public class PhoneController {
 
 	// 전화번호 수정
 	@RequestMapping(value = "/update", method = { RequestMethod.GET, RequestMethod.POST })
-	public String updateForm(Model model, @ModelAttribute PersonVo personVo) {
+	public String updateForm(Model model, @ModelAttribute PersonVo personVo) { //디폴트생성자를 통해 세터로 묶어줌(파라미터 명)
 		System.out.println("PhoneController>update()");
-
+		
 		// 파라미터 꺼내기+vo로 묶기를 DS해서 메소드의 파라미터로 보내준다
 		System.out.println(personVo);
 

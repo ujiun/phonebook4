@@ -44,6 +44,7 @@
 		]]>
 	</select>
 	
+	<!-- 전화번호 수정 -->
 	<update id="personUpdate" parameterType="com.javaex.vo.PersonVo">
 		<![CDATA[
 			update  person
