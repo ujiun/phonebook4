@@ -1,6 +1,7 @@
 package com.javaex.controller;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -59,7 +60,7 @@ public class PhoneController {
 		System.out.println("PhoneController>write()");
 
 		// Service를 통해서 저장한다
-		int count = phoneService.personInsert(personVo);
+		int count = phoneService.personInsert2();
 		
 		// 리다이렉트
 		return "redirect:/list";
@@ -138,6 +139,19 @@ public class PhoneController {
 
 		return "updateForm";
 	}
+	
+	// 전화번호 수정폼2
+	@RequestMapping(value = "/updateForm2", method = { RequestMethod.GET, RequestMethod.POST })
+	public String updateForm2(@RequestParam("no") int no) {
+		System.out.println("PhoneController>updateForm2()");
+		
+		Map<String, Object> pMap = phoneService.getPerson2(no);
+		String name = (String)pMap.get("NAME");
+		
+		System.out.println(name);
+		return "";
+	}
+	
 
 	// 전화번호 수정
 	@RequestMapping(value = "/update", method = { RequestMethod.GET, RequestMethod.POST })

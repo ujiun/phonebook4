@@ -23,7 +23,7 @@
 		]]>
 	</select>
 	
-	<!-- 전화번호 저장 -->
+	<!-- 전화번호 저장 -->	<!-- 게터 -->
 	<insert id="personInsert" parameterType="PersonVo">
 		<![CDATA[
 			insert into person
@@ -32,6 +32,16 @@
 		]]>
 	
 	</insert>
+	
+	<!-- 전화번호 저장(map을 사용하는 가상의 상황: 문법설명) -->	<!-- 겟.키값(맵 키값 확인) -->
+	<insert id="personInsert2" parameterType="map">
+		<![CDATA[
+			insert into person
+			values (seq_person_id.nextval, #{name}, #{hp}, #{company})
+		
+		]]>
+	</insert>
+	
 	
 	<!-- 전화번호 삭제 -->
 	<delete id="personDelete" parameterType="int">
@@ -55,6 +65,19 @@
 		]]>
 	</select>
 	
+	
+	<!-- 1명 정보 가져오기(회원정보용) (map을 사용하는 가상의 상황: 문법설명) -->	<!-- 이름 맞추기 중요! -->
+	<select id="getPerson2" parameterType="int" resultType="map">
+		<![CDATA[
+			select  person_id personId,	
+			      	name,
+			       	hp,
+			        company
+			from person
+			where person_id = #{no}
+		]]>
+	</select>
+	
 	<!-- 전화번호 수정 -->	<!-- 게터세터 이름 -->
 	<update id="personUpdate" parameterType="com.javaex.vo.PersonVo">
 		<![CDATA[
@@ -66,5 +89,6 @@
 		]]>
 	
 	</update>
+	
 	
 </mapper>
