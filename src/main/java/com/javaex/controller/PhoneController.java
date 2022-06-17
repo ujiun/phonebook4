@@ -142,14 +142,14 @@ public class PhoneController {
 	
 	// 전화번호 수정폼2
 	@RequestMapping(value = "/updateForm2", method = { RequestMethod.GET, RequestMethod.POST })
-	public String updateForm2(@RequestParam("no") int no) {
+	public String updateForm2(@RequestParam("no") int no, Model model) {
 		System.out.println("PhoneController>updateForm2()");
 		
 		Map<String, Object> pMap = phoneService.getPerson2(no);
-		String name = (String)pMap.get("NAME");
 		
-		System.out.println(name);
-		return "";
+		model.addAttribute("pMap", pMap);
+		
+		return "updateForm2";
 	}
 	
 
